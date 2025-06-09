@@ -1,7 +1,5 @@
-export default function Block(){
+export default function Block({number}){
     return(
-        <div className="block__container">
-            
-        </div>
+        <div className="block__container">{number}</div>
     )
 }
