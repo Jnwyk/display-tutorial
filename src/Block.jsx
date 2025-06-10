@@ -1,5 +1,10 @@
-export default function Block({number}){
-    return(
-        <div className="block__container">{number}</div>
-    )
+export default function Block({ number, isActive, handleRectangleOnClick }) {
+  const cssClass =
+    isActive === true ? 'block__container active' : 'block__container';
+
+  return (
+    <div className={cssClass} onClick={() => handleRectangleOnClick(number)}>
+      {number}
+    </div>
+  );
 }
