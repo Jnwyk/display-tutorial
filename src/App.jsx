@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BlockContainer from "./BlockContainer";
-import Selector from "./Selector";
+import ContainerProperties from "./ContainerProperties";
 
 export default function App() {
 
@@ -32,16 +32,12 @@ export default function App() {
   }
 
   return (
-    <>
-      <div>
-        <label htmlFor="flexbox">Flexbox property: </label>
-        <input type="checkbox" name="flexbox" onChange={() => handlePropertyValueChange("display", "flex")} />
-        <Selector cssProperty="flex-direction" cssPropertyValues={["row", "row-reverse", "column", "column-reverse"]} handleOnPropertyValueChange={handlePropertyValueChange} />
-        <Selector cssProperty="justify-content" cssPropertyValues={["flex-start", "center", "space-between", "space-around", "space-evenly", "flex-end"]} handleOnPropertyValueChange={handlePropertyValueChange} />
-        <Selector cssProperty="align-items" cssPropertyValues={["flex-start", "center", "stretch", "baseline", "flex-end"]} handleOnPropertyValueChange={handlePropertyValueChange} />
-        <Selector cssProperty="flex-wrap" cssPropertyValues={["nowrap", "wrap", "wrap-reverse"]} handleOnPropertyValueChange={handlePropertyValueChange} />
+    <div className="general__container">
+      <div className="properties__container">
+        <ContainerProperties handleOnPropertyValueChange={handlePropertyValueChange} />
+        <ContainerProperties handleOnPropertyValueChange={handlePropertyValueChange} />
       </div>
       <BlockContainer flexboxProperties={flexboxProperties} />
-    </>
+    </div>
   )
 }
