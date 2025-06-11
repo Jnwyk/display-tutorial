@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import BlockContainer from './BlockContainer';
 import ContainerProperties from './ContainerProperties';
+import ChildProperties from './ChildProperties';
 
 export default function App() {
   const [flexboxProperties, setFlexboxProperties] = useState({
@@ -10,6 +11,10 @@ export default function App() {
     alignItems: 'flex-start',
     flexWrap: 'flex-direction',
   });
+  const [flexboxChildProperties, setFlexboxChildProperties] = useState({
+    order: '0',
+    flexGrow: 0
+  })
 
   const handlePropertyValueChange = (property, value) => {
     switch (property) {
@@ -47,14 +52,24 @@ export default function App() {
     }
   };
 
+  const handleChildPropertyValueChange = (property, value) => {
+    switch(property){
+      case 'flex-grow':
+        setFlexboxChildProperties((prevValue) => ({
+          ...prevValue,
+          flexGrow: value
+        }))
+    }
+  }
+
   return (
     <div className="general__container">
       <div className="properties__container">
         <ContainerProperties
           handleOnPropertyValueChange={handlePropertyValueChange}
         />
-        <ContainerProperties
-          handleOnPropertyValueChange={handlePropertyValueChange}
+        <ChildProperties
+          handleOnPropertyValueChange={handleChildPropertyValueChange}
         />
       </div>
       <BlockContainer flexboxContainerProperties={flexboxProperties} />

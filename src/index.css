@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+    margin: 0;
+  padding: 0;
 }
 
 html {
@@ -35,7 +37,7 @@ html {
   padding: 16px;
   border-radius: 5px;
   flex-grow: 1;
-  gap: 16px;
+  /* gap: 16px; */
 }
 
 .block__container {
@@ -46,7 +48,8 @@ html {
   background-color: #dfd0b8;
   border-radius: 5px;
   margin: 16px;
-  height: 100px;
+  min-height: 100px;
+  min-width: 100px;
   width: 100px;
   font-size: 32px;
 }
