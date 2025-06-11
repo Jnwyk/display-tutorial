@@ -12,9 +12,9 @@ export default function App() {
     flexWrap: 'flex-direction',
   });
   const [flexboxChildProperties, setFlexboxChildProperties] = useState({
-    order: '0',
-    flexGrow: 0
-  })
+    order: 0,
+    flexGrow: 0,
+  });
 
   const handlePropertyValueChange = (property, value) => {
     switch (property) {
@@ -53,14 +53,21 @@ export default function App() {
   };
 
   const handleChildPropertyValueChange = (property, value) => {
-    switch(property){
+    switch (property) {
+      case 'order':
+        setFlexboxChildProperties((prevValue) => ({
+          ...prevValue,
+          order: value,
+        }));
+        break;
       case 'flex-grow':
         setFlexboxChildProperties((prevValue) => ({
           ...prevValue,
-          flexGrow: value
-        }))
+          flexGrow: value,
+        }));
+        break;
     }
-  }
+  };
 
   return (
     <div className="general__container">
@@ -70,9 +77,13 @@ export default function App() {
         />
         <ChildProperties
           handleOnPropertyValueChange={handleChildPropertyValueChange}
+          childStyling={flexboxChildProperties}
         />
       </div>
-      <BlockContainer flexboxContainerProperties={flexboxProperties} />
+      <BlockContainer
+        flexboxContainerProperties={flexboxProperties}
+        flexboxChildProperties={flexboxChildProperties}
+      />
     </div>
   );
 }
