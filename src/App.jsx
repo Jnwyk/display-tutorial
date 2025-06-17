@@ -4,6 +4,8 @@ import ContainerProperties from './ContainerProperties';
 import ChildProperties from './ChildProperties';
 import FlexboxModule from './FlexboxModule';
 
+const numberArray = [1, 2, 3, 4];
+
 export default function App() {
   const [flexboxProperties, setFlexboxProperties] = useState({
     display: 'block',
@@ -13,7 +15,7 @@ export default function App() {
     flexWrap: 'flex-direction',
   });
   const [flexboxChildProperties, setFlexboxChildProperties] = useState({
-    order: 0,
+    order: numberArray[0]-1,
     flexGrow: 0,
   });
 
@@ -85,6 +87,8 @@ export default function App() {
       <BlockContainer
         flexboxContainerProperties={flexboxProperties}
         flexboxChildProperties={flexboxChildProperties}
+        numberArray={numberArray}
+        handleOnPropertyValueChange={handleChildPropertyValueChange}
       />
     </div>
   );

@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import Block from './Block';
 
-const numberArray = [1, 2, 3, 4];
 
 export default function BlockContainer({
   flexboxContainerProperties,
   flexboxChildProperties,
+  numberArray,
+  handleOnPropertyValueChange
 }) {
   const [activeRectangle, setActiveRectangle] = useState(1);
 
   const handleRectangleOnClick = (number) => {
     setActiveRectangle(number);
+    handleOnPropertyValueChange('order', number-1);
   };
 
   return (
