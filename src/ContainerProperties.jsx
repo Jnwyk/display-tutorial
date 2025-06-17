@@ -3,12 +3,6 @@ import Selector from './Selector';
 export default function ContainerProperties({ handleOnPropertyValueChange }) {
   return (
     <div className="container_properties__container">
-      <label htmlFor="flexbox">Flexbox property: </label>
-      <input
-        type="checkbox"
-        name="flexbox"
-        onChange={() => handleOnPropertyValueChange('display', 'flex')}
-      />
       <Selector
         cssProperty="flex-direction"
         cssPropertyValues={['row', 'row-reverse', 'column', 'column-reverse']}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import BlockContainer from './BlockContainer';
 import ContainerProperties from './ContainerProperties';
 import ChildProperties from './ChildProperties';
+import FlexboxModule from './FlexboxModule';
 
 export default function App() {
   const [flexboxProperties, setFlexboxProperties] = useState({
@@ -72,6 +73,7 @@ export default function App() {
   return (
     <div className="general__container">
       <div className="properties__container">
+        <FlexboxModule handleOnPropertyValueChange={handlePropertyValueChange} />
         <ContainerProperties
           handleOnPropertyValueChange={handlePropertyValueChange}
         />
