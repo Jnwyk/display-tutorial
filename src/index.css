@@ -37,7 +37,6 @@ html {
   padding: 16px;
   border-radius: 5px;
   flex-grow: 1;
-  /* gap: 16px; */
 }
 
 .block__container {

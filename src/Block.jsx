@@ -8,11 +8,12 @@ export default function Block({
     isActive === true ? 'block__container active' : 'block__container';
 
   const inlineStyle = () => {
-    console.log(styling);
     if (isActive === true) {
       return {
         flexGrow: styling.flexGrow,
         order: styling.order,
+        flexBasis: styling.flexBasis,
+        flexShrink: styling.flexShrink
       };
     } else
       return {

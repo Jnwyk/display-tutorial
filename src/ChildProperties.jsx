@@ -42,6 +42,14 @@ export default function ChildProperties({
           />
         </div>
       </div>
+      <div>
+        <p>flex-shrink</p>
+        <SwiftButton
+          property="flex-shrink"
+          currentValue={childStyling.flexShrink}
+          handleOnSwiftButtonChange={handleOnPropertyValueChange}
+        />
+      </div>
     </div>
   );
 }

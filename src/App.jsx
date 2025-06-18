@@ -17,6 +17,8 @@ export default function App() {
   const [flexboxChildProperties, setFlexboxChildProperties] = useState({
     order: numberArray[0]-1,
     flexGrow: 0,
+    flexBasis: "400px",
+    flexShrink: 1
   });
 
   const handlePropertyValueChange = (property, value) => {
@@ -68,6 +70,20 @@ export default function App() {
           ...prevValue,
           flexGrow: value,
         }));
+        break;
+      case 'flex-basis':
+        setFlexboxChildProperties((prevValue) => ({
+          ...prevValue,
+          flexBasis: value,
+        }));
+        break;
+      case 'flex-shrink':
+        if(value >= 0){
+          setFlexboxChildProperties((prevValue) => ({
+            ...prevValue,
+            flexShrink: value,
+          }));
+        }
         break;
     }
   };
