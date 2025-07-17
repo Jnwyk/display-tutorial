@@ -4,11 +4,12 @@ export default function Selector({
   handleOnPropertyValueChange,
 }) {
   return (
-    <div>
+    <div className="property_container">
       <p>{cssProperty}</p>
       {cssPropertyValues.map((property) => {
         return (
           <button
+            className="selector_button"
             key={property}
             onClick={() => handleOnPropertyValueChange(cssProperty, property)}
           >

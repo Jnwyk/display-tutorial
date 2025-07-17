@@ -6,14 +6,17 @@ export default function RadioInput({
   onRadioInputChange,
 }) {
   return (
-    <>
+    <div>
       <input
+        className="radio_input"
         type="radio"
         name={name}
         checked={checked == value}
         onChange={() => onRadioInputChange(value)}
       />
-      <label htmlFor={name}>{label}</label>
-    </>
+      <label className="radio_label" htmlFor={name}>
+        {label}
+      </label>
+    </div>
   );
 }

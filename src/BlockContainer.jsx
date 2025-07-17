@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import Block from './Block';
 
-
 export default function BlockContainer({
   flexboxContainerProperties,
   flexboxChildProperties,
   numberArray,
-  handleOnPropertyValueChange
+  handleOnPropertyValueChange,
 }) {
   const [activeRectangle, setActiveRectangle] = useState(1);
 
   const handleRectangleOnClick = (number) => {
     setActiveRectangle(number);
-    handleOnPropertyValueChange('order', number-1);
+    handleOnPropertyValueChange('order', number - 1);
   };
 
   return (
@@ -28,7 +27,7 @@ export default function BlockContainer({
     >
       {numberArray.map((block) => (
         <Block
-          key={Math.random()}
+          key={block}
           number={block}
           isActive={activeRectangle === block ? true : false}
           styling={flexboxChildProperties}

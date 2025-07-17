@@ -1,30 +1,39 @@
+import { useEffect, useRef, useState } from 'react';
+
 export default function Block({
   number,
   isActive,
   handleRectangleOnClick,
   styling,
 }) {
-  const cssClass =
-    isActive === true ? 'block__container active' : 'block__container';
+  const [cssClass, setCssClass] = useState('block__container');
+  const firstRender = useRef(true);
 
-  const inlineStyle = () => {
-    if (isActive === true) {
-      return {
+  useEffect(() => {
+    const baseClass = 'block__container';
+    if (firstRender.current) {
+      setCssClass(isActive ? `${baseClass} active no-transition` : baseClass);
+      firstRender.current = false;
+    } else {
+      requestAnimationFrame(() => {
+        setCssClass(isActive ? `${baseClass} active` : baseClass);
+      });
+    }
+  }, [isActive]);
+
+  const inlineStyle = isActive
+    ? {
         flexGrow: styling.flexGrow,
         order: styling.order,
         flexBasis: styling.flexBasis,
-        flexShrink: styling.flexShrink
-      };
-    } else
-      return {
-        order: number - 1,
-      };
-  };
+        flexShrink: styling.flexShrink,
+      }
+    : { order: number - 1 };
 
   return (
     <div
       className={cssClass}
-      style={inlineStyle()}
+      style={inlineStyle}
       onClick={() => handleRectangleOnClick(number)}
     >
       {number}

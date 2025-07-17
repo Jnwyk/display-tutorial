@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Huninn&family=Onest:wght@100..900&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Onest', sans-serif;
+  color: #eeeeee;
 }
 
 html {
@@ -43,14 +47,17 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 5px solid #dfd0b8;
-  background-color: #dfd0b8;
+  background-color: #eeeeee;
+  color: #222831;
   border-radius: 5px;
   margin: 16px;
   min-height: 100px;
   min-width: 100px;
   width: 100px;
   font-size: 32px;
+  transition:
+    background-color 1s ease,
+    transform 0.5s ease;
 }
 
 .container_properties__container {
@@ -59,6 +66,111 @@ html {
   flex: 1;
 }
 
-.active {
-  background-color: aquamarine;
+.block__container.active.no-transition {
+  transition: none !important;
+}
+
+.flexbox__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #393e46;
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.flexbox_input {
+  margin: 0.5rem;
+  accent-color: #fd944d;
+  color: #eeeeee;
+  width: 1rem;
+  height: 1rem;
+}
+
+.active,
+.selector_button:hover {
+  background-color: #fd944d;
+  box-shadow:
+    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+    0 0 0 1px hsla(230, 13%, 9%, 0.075),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+}
+
+.property_container {
+  margin: 1.5rem 0.5rem 0 0.5rem;
+}
+
+.property_container:first-child {
+  margin-top: 1rem;
+}
+
+.property_label {
+  font-size: 1.1rem;
+}
+
+.selector_button {
+  padding: 0.2rem;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+  background-color: #fd7014;
+  cursor: pointer;
+  border: none;
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+.selector_button:last-child {
+  margin-right: 0;
+}
+
+.swift_button {
+  border: none;
+  background-color: #393e46;
+  font-size: 1.5rem;
+  color: #fd7014;
+  font-weight: 700;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.swift_button:hover {
+  color: #fd944d;
+}
+
+.swift_button:first-child:hover {
+  transform: translateX(-10%);
+}
+
+.swift_button:last-child:hover {
+  transform: translateX(10%);
+}
+
+.swift_container,
+.radio_container {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  left: 10%;
+  margin-top: 0.5rem;
+  gap: 3rem;
+}
+
+.swift_value {
+  font-weight: 700;
+  font-size: 1.3rem;
+  align-self: center;
+  cursor: default;
+}
+
+.radio_label {
+  font-weight: 700;
+  margin-left: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.radio_input {
+  accent-color: #fd944d;
 }

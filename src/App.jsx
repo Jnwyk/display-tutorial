@@ -15,10 +15,10 @@ export default function App() {
     flexWrap: 'flex-direction',
   });
   const [flexboxChildProperties, setFlexboxChildProperties] = useState({
-    order: numberArray[0]-1,
+    order: numberArray[0] - 1,
     flexGrow: 0,
-    flexBasis: "400px",
-    flexShrink: 1
+    flexBasis: '1%',
+    flexShrink: 1,
   });
 
   const handlePropertyValueChange = (property, value) => {
@@ -78,7 +78,7 @@ export default function App() {
         }));
         break;
       case 'flex-shrink':
-        if(value >= 0){
+        if (value >= 0) {
           setFlexboxChildProperties((prevValue) => ({
             ...prevValue,
             flexShrink: value,
@@ -91,7 +91,9 @@ export default function App() {
   return (
     <div className="general__container">
       <div className="properties__container">
-        <FlexboxModule handleOnPropertyValueChange={handlePropertyValueChange} />
+        <FlexboxModule
+          handleOnPropertyValueChange={handlePropertyValueChange}
+        />
         <ContainerProperties
           handleOnPropertyValueChange={handlePropertyValueChange}
         />
