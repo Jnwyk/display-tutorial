@@ -1,4 +1,12 @@
+import { useState } from 'react';
+
 export default function FlexboxModule({ handleOnPropertyValueChange }) {
+  const [checkBoxActive, setCheckboxActive] = useState(true);
+
+  const handleInputChange = () => {
+    setCheckboxActive((prev) => !prev);
+    handleOnPropertyValueChange('display', 'flex');
+  };
   return (
     <div className="flexbox__container">
       <label className="flexbox_label" htmlFor="flexbox">
@@ -8,7 +16,8 @@ export default function FlexboxModule({ handleOnPropertyValueChange }) {
         className="flexbox_input"
         type="checkbox"
         name="flexbox"
-        onChange={() => handleOnPropertyValueChange('display', 'flex')}
+        checked={checkBoxActive}
+        onChange={() => handleInputChange()}
       />
     </div>
   );

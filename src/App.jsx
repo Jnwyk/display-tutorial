@@ -8,7 +8,7 @@ const numberArray = [1, 2, 3, 4];
 
 export default function App() {
   const [flexboxProperties, setFlexboxProperties] = useState({
-    display: 'block',
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
