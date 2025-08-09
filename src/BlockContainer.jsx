@@ -6,6 +6,9 @@ export default function BlockContainer({
   flexboxChildProperties,
   numberArray,
   handleOnPropertyValueChange,
+  containerWidth,
+  displayContainerRef,
+  displayFlexGrow,
 }) {
   const [activeRectangle, setActiveRectangle] = useState(1);
 
@@ -13,9 +16,9 @@ export default function BlockContainer({
     setActiveRectangle(number);
     handleOnPropertyValueChange('order', number - 1);
   };
-
   return (
     <div
+      ref={displayContainerRef}
       className="display__container"
       style={{
         display: flexboxContainerProperties.display,
@@ -23,6 +26,8 @@ export default function BlockContainer({
         justifyContent: flexboxContainerProperties.justifyContent,
         alignItems: flexboxContainerProperties.alignItems,
         flexWrap: flexboxContainerProperties.flexWrap,
+        width: containerWidth + 'px',
+        flexGrow: displayFlexGrow,
       }}
     >
       {numberArray.map((block) => (

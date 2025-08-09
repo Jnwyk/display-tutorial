@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import BlockContainer from './BlockContainer';
 import ContainerProperties from './ContainerProperties';
 import ChildProperties from './ChildProperties';
 import FlexboxModule from './FlexboxModule';
+import ContainerWidth from './ContainerWidth';
 
 const numberArray = [1, 2, 3, 4];
 
@@ -20,6 +21,16 @@ export default function App() {
     flexBasis: '1%',
     flexShrink: 1,
   });
+  const [displayContainerWidth, setDisplayContainerWidth] = useState(null);
+  const [initialWidth, setInitialWidth] = useState(null);
+  const [displayFlexGrow, setDisplayFlexGrow] = useState(1);
+  const displayRef = useRef(null);
+
+  useEffect(() => {
+    if (displayRef.current) {
+      setInitialWidth(displayRef.current.offsetWidth);
+    }
+  }, []);
 
   const handlePropertyValueChange = (property, value) => {
     switch (property) {
@@ -88,12 +99,23 @@ export default function App() {
     }
   };
 
+  const handleWidthChange = (newWidth) => {
+    setDisplayContainerWidth(newWidth);
+    setDisplayFlexGrow(0);
+  };
+
   return (
     <div className="general__container">
       <div className="properties__container">
         <FlexboxModule
           handleOnPropertyValueChange={handlePropertyValueChange}
         />
+        {displayRef.current && (
+          <ContainerWidth
+            handleSliderChange={handleWidthChange}
+            maxDisplayWidth={initialWidth}
+          />
+        )}
         <ContainerProperties
           handleOnPropertyValueChange={handlePropertyValueChange}
         />
@@ -103,10 +125,13 @@ export default function App() {
         />
       </div>
       <BlockContainer
+        displayContainerRef={displayRef}
+        displayFlexGrow={displayFlexGrow}
         flexboxContainerProperties={flexboxProperties}
         flexboxChildProperties={flexboxChildProperties}
         numberArray={numberArray}
         handleOnPropertyValueChange={handleChildPropertyValueChange}
+        containerWidth={displayContainerWidth}
       />
     </div>
   );
