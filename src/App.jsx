@@ -5,6 +5,7 @@ import ChildProperties from './ChildProperties';
 import FlexboxModule from './FlexboxModule';
 import ContainerWidth from './ContainerWidth';
 import { InfoContextProvider } from './store/InfoContext';
+import InfoModal from './InfoModal';
 
 const numberArray = [1, 2, 3, 4];
 
@@ -136,6 +137,7 @@ export default function App() {
           containerWidth={displayContainerWidth}
         />
       </div>
+      <InfoModal />
     </InfoContextProvider>
   );
 }
