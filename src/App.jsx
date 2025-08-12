@@ -4,6 +4,7 @@ import ContainerProperties from './ContainerProperties';
 import ChildProperties from './ChildProperties';
 import FlexboxModule from './FlexboxModule';
 import ContainerWidth from './ContainerWidth';
+import { InfoContextProvider } from './store/InfoContext';
 
 const numberArray = [1, 2, 3, 4];
 
@@ -105,34 +106,36 @@ export default function App() {
   };
 
   return (
-    <div className="general__container">
-      <div className="properties__container">
-        <FlexboxModule
-          handleOnPropertyValueChange={handlePropertyValueChange}
-        />
-        {displayRef.current && (
-          <ContainerWidth
-            handleSliderChange={handleWidthChange}
-            maxDisplayWidth={initialWidth}
+    <InfoContextProvider>
+      <div className="general__container">
+        <div className="properties__container">
+          <FlexboxModule
+            handleOnPropertyValueChange={handlePropertyValueChange}
           />
-        )}
-        <ContainerProperties
-          handleOnPropertyValueChange={handlePropertyValueChange}
-        />
-        <ChildProperties
+          {displayRef.current && (
+            <ContainerWidth
+              handleSliderChange={handleWidthChange}
+              maxDisplayWidth={initialWidth}
+            />
+          )}
+          <ContainerProperties
+            handleOnPropertyValueChange={handlePropertyValueChange}
+          />
+          <ChildProperties
+            handleOnPropertyValueChange={handleChildPropertyValueChange}
+            childStyling={flexboxChildProperties}
+          />
+        </div>
+        <BlockContainer
+          displayContainerRef={displayRef}
+          displayFlexGrow={displayFlexGrow}
+          flexboxContainerProperties={flexboxProperties}
+          flexboxChildProperties={flexboxChildProperties}
+          numberArray={numberArray}
           handleOnPropertyValueChange={handleChildPropertyValueChange}
-          childStyling={flexboxChildProperties}
+          containerWidth={displayContainerWidth}
         />
       </div>
-      <BlockContainer
-        displayContainerRef={displayRef}
-        displayFlexGrow={displayFlexGrow}
-        flexboxContainerProperties={flexboxProperties}
-        flexboxChildProperties={flexboxChildProperties}
-        numberArray={numberArray}
-        handleOnPropertyValueChange={handleChildPropertyValueChange}
-        containerWidth={displayContainerWidth}
-      />
-    </div>
+    </InfoContextProvider>
   );
 }
