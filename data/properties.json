@@ -1,0 +1,32 @@
+{
+  "properties": [
+    {
+      "property": "flex-direction",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    },
+    {
+      "property": "justify-content",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    },
+    {
+      "property": "align-items",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    },
+    {
+      "property": "flex-wrap",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    },
+    {
+      "property": "order",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    },
+    {
+      "property": "flex-grow",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    },
+    {
+      "property": "flex-shrink",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 const InfoContext = createContext({
   isOpen: false,
-  openedProperty: '',
+  openedProperty: undefined,
   selectProperty: () => {},
   openModal: () => {},
   closeModal: () => {},

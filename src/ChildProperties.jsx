@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RadioInput from './RadioInput';
 import SwiftButton from './SwiftButton';
+import InfoButton from './InfoButton';
 
 export default function ChildProperties({
   handleOnPropertyValueChange,
@@ -17,6 +18,7 @@ export default function ChildProperties({
     <div className="container_properties__container">
       <div className="property_container">
         <p className="property_label">order</p>
+        <InfoButton property="order" />
         <SwiftButton
           property="order"
           currentValue={childStyling.order}
@@ -25,6 +27,7 @@ export default function ChildProperties({
       </div>
       <div className="property_container">
         <p className="property_label">flex-grow</p>
+        <InfoButton property="flex-grow" />
         <div className="radio_container" name="flex-grow">
           <RadioInput
             name={'flex-grow'}
@@ -44,6 +47,7 @@ export default function ChildProperties({
       </div>
       <div className="property_container">
         <p className="property_label">flex-shrink</p>
+        <InfoButton property="flex-shrink" />
         <SwiftButton
           property="flex-shrink"
           currentValue={childStyling.flexShrink}

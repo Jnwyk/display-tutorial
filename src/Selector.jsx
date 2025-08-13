@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import InfoButton from './InfoButton';
 
 export default function Selector({
   cssProperty,
@@ -15,6 +16,7 @@ export default function Selector({
   return (
     <div className="property_container">
       <p>{cssProperty}</p>
+      <InfoButton property={cssProperty} />
       {cssPropertyValues.map((property, i) => {
         return (
           <button
