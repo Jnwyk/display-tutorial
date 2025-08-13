@@ -222,3 +222,30 @@ html {
 .range-slider__thumb[data-upper] {
   background-color: #fcbb8f !important;
 }
+
+.info-button {
+  margin-left: 0.3rem;
+  transform: scale(80%);
+  cursor: pointer;
+}
+
+.modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 30%;
+  background-color: #3d403b;
+  border: none;
+  padding: 1rem;
+  cursor: default;
+}
+
+.info-modal_close-button {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  background-color: #3d403b;
+  border: none;
+  cursor: pointer;
+}

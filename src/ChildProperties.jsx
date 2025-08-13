@@ -17,8 +17,10 @@ export default function ChildProperties({
   return (
     <div className="container_properties__container">
       <div className="property_container">
-        <p className="property_label">order</p>
-        <InfoButton property="order" />
+        <div>
+          <span className="property_label">order</span>
+          <InfoButton property="order" />
+        </div>
         <SwiftButton
           property="order"
           currentValue={childStyling.order}
@@ -26,8 +28,10 @@ export default function ChildProperties({
         />
       </div>
       <div className="property_container">
-        <p className="property_label">flex-grow</p>
-        <InfoButton property="flex-grow" />
+        <div>
+          <span className="property_label">flex-grow</span>
+          <InfoButton property="flex-grow" />
+        </div>
         <div className="radio_container" name="flex-grow">
           <RadioInput
             name={'flex-grow'}
@@ -46,8 +50,10 @@ export default function ChildProperties({
         </div>
       </div>
       <div className="property_container">
-        <p className="property_label">flex-shrink</p>
-        <InfoButton property="flex-shrink" />
+        <div>
+          <span className="property_label">flex-shrink</span>
+          <InfoButton property="flex-shrink" />
+        </div>
         <SwiftButton
           property="flex-shrink"
           currentValue={childStyling.flexShrink}

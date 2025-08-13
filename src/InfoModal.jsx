@@ -22,7 +22,7 @@ export default function InfoModal() {
         {infoCtx.openedProperty ? currentProperty.description : ''}
       </p>
       <button className="info-modal_close-button" onClick={handleCloseModal}>
-        X
+        x
       </button>
     </Modal>
   );

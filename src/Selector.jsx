@@ -15,8 +15,10 @@ export default function Selector({
 
   return (
     <div className="property_container">
-      <p>{cssProperty}</p>
-      <InfoButton property={cssProperty} />
+      <div>
+        <span>{cssProperty}</span>
+        <InfoButton property={cssProperty} />
+      </div>
       {cssPropertyValues.map((property, i) => {
         return (
           <button
