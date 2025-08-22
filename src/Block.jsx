@@ -25,8 +25,7 @@ export default function Block({
     ? {
         flexGrow: styling.flexGrow,
         order: styling.order,
-        // flexBasis: styling.flexBasis,
-        // flexBasis: '200px',
+        flexBasis: styling.flexBasis,
         flexShrink: styling.flexShrink,
       }
     : { order: number - 1 };

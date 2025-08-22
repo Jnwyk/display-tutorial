@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import RadioInput from './RadioInput';
 import SwiftButton from './SwiftButton';
-import InfoButton from './InfoButton';
+import ChildProperty from './ChildProperty';
+import Input from './Input';
 
 export default function ChildProperties({
   handleOnPropertyValueChange,
@@ -16,22 +17,14 @@ export default function ChildProperties({
 
   return (
     <div className="container_properties__container">
-      <div className="property_container">
-        <div>
-          <span className="property_label">order</span>
-          <InfoButton property="order" />
-        </div>
+      <ChildProperty propertyName="order">
         <SwiftButton
           property="order"
           currentValue={childStyling.order}
           handleOnSwiftButtonChange={handleOnPropertyValueChange}
         />
-      </div>
-      <div className="property_container">
-        <div>
-          <span className="property_label">flex-grow</span>
-          <InfoButton property="flex-grow" />
-        </div>
+      </ChildProperty>
+      <ChildProperty propertyName="flex-grow">
         <div className="radio_container" name="flex-grow">
           <RadioInput
             name={'flex-grow'}
@@ -48,18 +41,23 @@ export default function ChildProperties({
             onRadioInputChange={handlleRadioInputChange}
           />
         </div>
-      </div>
-      <div className="property_container">
-        <div>
-          <span className="property_label">flex-shrink</span>
-          <InfoButton property="flex-shrink" />
-        </div>
+      </ChildProperty>
+      <ChildProperty propertyName="flex-shrink">
         <SwiftButton
           property="flex-shrink"
           currentValue={childStyling.flexShrink}
           handleOnSwiftButtonChange={handleOnPropertyValueChange}
         />
-      </div>
+      </ChildProperty>
+      <ChildProperty propertyName="flex-basis">
+        <Input
+          property="flex-basis"
+          placeholder="Enter value..."
+          value={100}
+          handleOnBlur={handleOnPropertyValueChange}
+        />
+        <span>px</span>
+      </ChildProperty>
     </div>
   );
 }

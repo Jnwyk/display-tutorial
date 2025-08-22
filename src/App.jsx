@@ -71,6 +71,7 @@ export default function App() {
   };
 
   const handleChildPropertyValueChange = (property, value) => {
+    console.log(property, value);
     switch (property) {
       case 'order':
         setFlexboxChildProperties((prevValue) => ({
@@ -87,7 +88,7 @@ export default function App() {
       case 'flex-basis':
         setFlexboxChildProperties((prevValue) => ({
           ...prevValue,
-          flexBasis: value,
+          flexBasis: value + 'px',
         }));
         break;
       case 'flex-shrink':

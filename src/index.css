@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Huninn&family=Onest:wght@100..900&display=swap');
 
+/* ANIMATIONS */
+
+@keyframes show-modal {
+  from {
+    opacity: 0;
+    top: 49%;
+  }
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -53,7 +66,6 @@ html {
   border-radius: 5px;
   margin: 16px;
   min-height: 100px;
-  /* min-width: 100px; */
   width: 100px;
   flex-basis: 100px;
   font-size: 32px;
@@ -92,7 +104,7 @@ html {
 
 .active {
   background-color: #fd944d;
-  width: 100px;
+  flex-basis: 100px;
   box-shadow:
     inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
     0 0 0 1px hsla(230, 13%, 9%, 0.075),
@@ -239,6 +251,7 @@ html {
   border: none;
   padding: 1rem;
   cursor: default;
+  animation: show-modal 0.25s ease-in-out;
 }
 
 .info-modal_close-button {
