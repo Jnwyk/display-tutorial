@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function Input({
-  className,
+  className = '',
   startingValue,
   property,
   handleOnBlur,
@@ -13,8 +13,9 @@ export default function Input({
   };
   return (
     <input
+      name={property}
       className={`input ${className}`}
-      onBlur={() => handleOnBlur(property, widthValue)}
+      onBlur={() => handleOnBlur('child', property, widthValue)}
       onChange={(e) => handleOnChange(e.target.value)}
       value={widthValue || ''}
     />

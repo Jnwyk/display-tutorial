@@ -14,7 +14,7 @@ export default function BlockContainer({
 
   const handleRectangleOnClick = (number) => {
     setActiveRectangle(number);
-    handleOnPropertyValueChange('order', number - 1);
+    handleOnPropertyValueChange('child', 'order', number - 1);
   };
   return (
     <div
@@ -30,6 +30,7 @@ export default function BlockContainer({
         flexGrow: displayFlexGrow,
       }}
     >
+      {console.log(numberArray)}
       {numberArray.map((block) => (
         <Block
           key={block}

@@ -80,6 +80,11 @@ html {
   flex: 1;
 }
 
+/* .container_properties__container.child {
+  display: grid;
+  grid-template-columns: 50% 50%;
+} */
+
 .block__container.active.no-transition {
   transition: none !important;
 }
@@ -144,7 +149,8 @@ html {
   margin: 1.5rem 0.5rem 0 0.5rem;
 }
 
-.property_container:first-child {
+.property_container:first-child,
+.property_container.child-properties {
   margin-top: 1rem;
 }
 
@@ -261,4 +267,26 @@ html {
   background-color: #3d403b;
   border: none;
   cursor: pointer;
+}
+
+.input {
+  color: #74523d;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: right;
+  width: 15%;
+  padding: 1px 4px;
+  margin-left: 16px;
+  margin-top: 0.5rem;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input_unit {
+  margin-left: 4px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #d8c7b8;
 }

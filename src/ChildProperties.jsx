@@ -12,52 +12,56 @@ export default function ChildProperties({
 
   const handlleRadioInputChange = (value) => {
     setCheckedRadioInput(value);
-    handleOnPropertyValueChange('flex-grow', value);
+    handleOnPropertyValueChange('child', 'flex-grow', value);
   };
 
   return (
-    <div className="container_properties__container">
-      <ChildProperty propertyName="order">
-        <SwiftButton
-          property="order"
-          currentValue={childStyling.order}
-          handleOnSwiftButtonChange={handleOnPropertyValueChange}
-        />
-      </ChildProperty>
-      <ChildProperty propertyName="flex-grow">
-        <div className="radio_container" name="flex-grow">
-          <RadioInput
-            name={'flex-grow'}
-            label={0}
-            value={0}
-            checked={checkedRadioInput}
-            onRadioInputChange={handlleRadioInputChange}
+    <div className="container_properties__container child">
+      <div className="container_properties__row">
+        <ChildProperty propertyName="order">
+          <SwiftButton
+            property="order"
+            currentValue={childStyling.order}
+            handleOnSwiftButtonChange={handleOnPropertyValueChange}
           />
-          <RadioInput
-            name={'flex-grow'}
-            label={1}
-            value={1}
-            checked={checkedRadioInput}
-            onRadioInputChange={handlleRadioInputChange}
+        </ChildProperty>
+        <ChildProperty propertyName="flex-grow">
+          <div className="radio_container" name="flex-grow">
+            <RadioInput
+              name={'flex-grow'}
+              label={0}
+              value={0}
+              checked={checkedRadioInput}
+              onRadioInputChange={handlleRadioInputChange}
+            />
+            <RadioInput
+              name={'flex-grow'}
+              label={1}
+              value={1}
+              checked={checkedRadioInput}
+              onRadioInputChange={handlleRadioInputChange}
+            />
+          </div>
+        </ChildProperty>
+      </div>
+      <div className="container_properties__row">
+        <ChildProperty propertyName="flex-shrink">
+          <SwiftButton
+            property="flex-shrink"
+            currentValue={childStyling.flexShrink}
+            handleOnSwiftButtonChange={handleOnPropertyValueChange}
           />
-        </div>
-      </ChildProperty>
-      <ChildProperty propertyName="flex-shrink">
-        <SwiftButton
-          property="flex-shrink"
-          currentValue={childStyling.flexShrink}
-          handleOnSwiftButtonChange={handleOnPropertyValueChange}
-        />
-      </ChildProperty>
-      <ChildProperty propertyName="flex-basis">
-        <Input
-          property="flex-basis"
-          placeholder="Enter value..."
-          value={100}
-          handleOnBlur={handleOnPropertyValueChange}
-        />
-        <span>px</span>
-      </ChildProperty>
+        </ChildProperty>
+        <ChildProperty propertyName="flex-basis">
+          <Input
+            property="flex-basis"
+            placeholder="Enter value..."
+            value={100}
+            handleOnBlur={handleOnPropertyValueChange}
+          />
+          <span className="input_unit">px</span>
+        </ChildProperty>
+      </div>
     </div>
   );
 }

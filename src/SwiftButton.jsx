@@ -7,14 +7,18 @@ export default function SwiftButton({
     <div className="swift_container">
       <button
         className="swift_button"
-        onClick={() => handleOnSwiftButtonChange(property, currentValue - 1)}
+        onClick={() =>
+          handleOnSwiftButtonChange('child', property, currentValue - 1)
+        }
       >
         {'<'}
       </button>
       <p className="swift_value">{currentValue}</p>
       <button
         className="swift_button"
-        onClick={() => handleOnSwiftButtonChange(property, currentValue + 1)}
+        onClick={() =>
+          handleOnSwiftButtonChange('child', property, currentValue + 1)
+        }
       >
         {'>'}
       </button>

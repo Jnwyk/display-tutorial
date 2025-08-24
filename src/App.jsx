@@ -1,32 +1,21 @@
 import { useState, useRef, useEffect } from 'react';
+import useChangeProperty from './hooks/useChangeProperty';
 import BlockContainer from './BlockContainer';
 import ContainerProperties from './ContainerProperties';
 import ChildProperties from './ChildProperties';
 import FlexboxModule from './FlexboxModule';
 import ContainerWidth from './ContainerWidth';
-import { InfoContextProvider } from './store/InfoContext';
 import InfoModal from './InfoModal';
-
-const numberArray = [1, 2, 3, 4];
+import { InfoContextProvider } from './store/InfoContext';
+import { blockArray } from '../data/blockArray';
 
 export default function App() {
-  const [flexboxProperties, setFlexboxProperties] = useState({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    flexWrap: 'flex-direction',
-  });
-  const [flexboxChildProperties, setFlexboxChildProperties] = useState({
-    order: numberArray[0] - 1,
-    flexGrow: 0,
-    flexBasis: '1%',
-    flexShrink: 1,
-  });
   const [displayContainerWidth, setDisplayContainerWidth] = useState(null);
   const [initialWidth, setInitialWidth] = useState(null);
   const [displayFlexGrow, setDisplayFlexGrow] = useState(1);
   const displayRef = useRef(null);
+  const [flexboxProperties, flexboxChildProperties, setChangeProperty] =
+    useChangeProperty(null, null, null);
 
   useEffect(() => {
     if (displayRef.current) {
@@ -34,86 +23,15 @@ export default function App() {
     }
   }, []);
 
-  const handlePropertyValueChange = (property, value) => {
-    switch (property) {
-      case 'display':
-        setFlexboxProperties((prevValue) => {
-          if (prevValue.display === 'flex')
-            return { ...prevValue, display: 'block' };
-          else return { ...prevValue, display: 'flex' };
-        });
-        break;
-      case 'flex-direction':
-        setFlexboxProperties((prevValue) => ({
-          ...prevValue,
-          flexDirection: value,
-        }));
-        break;
-      case 'justify-content':
-        setFlexboxProperties((prevValue) => ({
-          ...prevValue,
-          justifyContent: value,
-        }));
-        break;
-      case 'align-items':
-        setFlexboxProperties((prevValue) => ({
-          ...prevValue,
-          alignItems: value,
-        }));
-        break;
-      case 'flex-wrap':
-        setFlexboxProperties((prevValue) => ({
-          ...prevValue,
-          flexWrap: value,
-        }));
-        break;
-    }
-  };
-
-  const handleChildPropertyValueChange = (property, value) => {
-    console.log(property, value);
-    switch (property) {
-      case 'order':
-        setFlexboxChildProperties((prevValue) => ({
-          ...prevValue,
-          order: value,
-        }));
-        break;
-      case 'flex-grow':
-        setFlexboxChildProperties((prevValue) => ({
-          ...prevValue,
-          flexGrow: value,
-        }));
-        break;
-      case 'flex-basis':
-        setFlexboxChildProperties((prevValue) => ({
-          ...prevValue,
-          flexBasis: value + 'px',
-        }));
-        break;
-      case 'flex-shrink':
-        if (value >= 0) {
-          setFlexboxChildProperties((prevValue) => ({
-            ...prevValue,
-            flexShrink: value,
-          }));
-        }
-        break;
-    }
-  };
-
   const handleWidthChange = (newWidth) => {
     setDisplayContainerWidth(newWidth);
     setDisplayFlexGrow(0);
   };
-
   return (
     <InfoContextProvider>
       <div className="general__container">
         <div className="properties__container">
-          <FlexboxModule
-            handleOnPropertyValueChange={handlePropertyValueChange}
-          />
+          <FlexboxModule handleOnPropertyValueChange={setChangeProperty} />
           {displayRef.current && (
             <ContainerWidth
               handleSliderChange={handleWidthChange}
@@ -121,10 +39,10 @@ export default function App() {
             />
           )}
           <ContainerProperties
-            handleOnPropertyValueChange={handlePropertyValueChange}
+            handleOnPropertyValueChange={setChangeProperty}
           />
           <ChildProperties
-            handleOnPropertyValueChange={handleChildPropertyValueChange}
+            handleOnPropertyValueChange={setChangeProperty}
             childStyling={flexboxChildProperties}
           />
         </div>
@@ -133,8 +51,8 @@ export default function App() {
           displayFlexGrow={displayFlexGrow}
           flexboxContainerProperties={flexboxProperties}
           flexboxChildProperties={flexboxChildProperties}
-          numberArray={numberArray}
-          handleOnPropertyValueChange={handleChildPropertyValueChange}
+          numberArray={blockArray}
+          handleOnPropertyValueChange={setChangeProperty}
           containerWidth={displayContainerWidth}
         />
       </div>

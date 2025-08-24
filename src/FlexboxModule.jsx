@@ -5,7 +5,7 @@ export default function FlexboxModule({ handleOnPropertyValueChange }) {
 
   const handleInputChange = () => {
     setCheckboxActive((prev) => !prev);
-    handleOnPropertyValueChange('display', 'flex');
+    handleOnPropertyValueChange('parent', 'display', 'flex');
   };
   return (
     <div className="flexbox__container">

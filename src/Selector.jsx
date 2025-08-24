@@ -9,7 +9,7 @@ export default function Selector({
   const [isButtonActive, setIsButtonActive] = useState(0);
 
   const handleButtonClick = (property, buttonIndex) => {
-    handleOnPropertyValueChange(cssProperty, property);
+    handleOnPropertyValueChange('parent', cssProperty, property);
     setIsButtonActive(buttonIndex);
   };
 
