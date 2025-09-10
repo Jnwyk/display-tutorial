@@ -1,7 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Huninn&family=Onest:wght@100..900&display=swap');
 
-/* ANIMATIONS */
+/* ==========================
+   VARIABLES
+   ========================== */
+:root {
+  --color-text-primary: #eeeeee;
+  --color-text-secondary: #d8c7b8;
+  --color-accent: #fd944d;
+  --color-accent-light: #fcbb8f;
+  --color-accent-dark: #74523d;
+  --color-bg-dark: #3d403b;
+  --color-bg-mid: #4a4d47;
+  --color-bg-light: #636363;
+}
 
+/* ==========================
+   ANIMATIONS
+   ========================== */
 @keyframes show-modal {
   from {
     opacity: 0;
@@ -13,20 +28,19 @@
   }
 }
 
+/* ==========================
+   BASE STYLES
+   ========================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Onest', sans-serif;
-  color: #eeeeee;
+  color: var(--color-text-primary);
 }
 
 html {
-  background-color: #3d403b;
-}
-
-body > #root > div {
-  height: 96vh;
+  background-color: var(--color-bg-dark);
 }
 
 body,
@@ -35,6 +49,13 @@ html {
   padding: 1vh 1vw;
 }
 
+body > #root > div {
+  height: 96vh;
+}
+
+/* ==========================
+   LAYOUT CONTAINERS
+   ========================== */
 .general__container {
   display: flex;
   align-items: stretch;
@@ -50,101 +71,124 @@ html {
 
 .display__container {
   position: relative;
-  background-color: #4a4d47;
+  flex-grow: 1;
+  min-width: 242px;
   padding: 16px;
   border-radius: 5px;
-  min-width: 242px;
-  flex-grow: 1;
+  background-color: var(--color-bg-mid);
+}
+
+.container_properties__container {
+  flex: 1;
+  border-radius: 5px;
+  background-color: var(--color-bg-mid);
+}
+
+/* ==========================
+   FLEX & BLOCK ELEMENTS
+   ========================== */
+.flexbox__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem;
+  border-radius: 5px;
+  background-color: var(--color-bg-mid);
 }
 
 .block__container {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fcbb8f;
-  color: #74523d;
-  border-radius: 5px;
-  margin: 16px;
+  flex-basis: 100px;
   min-height: 100px;
   width: 100px;
-  flex-basis: 100px;
+  margin: 16px;
   font-size: 32px;
+  border-radius: 5px;
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-light);
   transition:
     background-color 1s ease,
     transform 0.5s ease;
 }
 
-.container_properties__container {
-  background-color: #4a4d47;
-  border-radius: 5px;
-  flex: 1;
-}
-
-/* .container_properties__container.child {
-  display: grid;
-  grid-template-columns: 50% 50%;
-} */
-
 .block__container.active.no-transition {
   transition: none !important;
 }
 
-.flexbox__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #4a4d47;
-  border-radius: 5px;
-  padding: 2rem;
+.active {
+  flex-basis: 100px;
+  background-color: var(--color-accent);
+  box-shadow:
+    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+    0 0 0 1px hsla(230, 13%, 9%, 0.075),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
 }
 
+/* ==========================
+   FORM ELEMENTS
+   ========================== */
 .flexbox_input {
-  margin: 0.5rem;
-  accent-color: #fd944d;
-  color: #eeeeee;
   width: 1rem;
   height: 1rem;
+  margin: 0.5rem;
+  accent-color: var(--color-accent);
+  color: var(--color-text-primary);
 }
 
-.active {
-  background-color: #fd944d;
-  flex-basis: 100px;
-  box-shadow:
-    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
-    0 0 0 1px hsla(230, 13%, 9%, 0.075),
-    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
-    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
-    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
-}
-.selector_button:hover {
-  background-color: #fd944d;
-  box-shadow:
-    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
-    0 0 0 1px hsla(230, 13%, 9%, 0.075),
-    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
-    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
-    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+.radio_input {
+  accent-color: var(--color-accent);
 }
 
-.selector_button_active {
-  background-color: #fcbb8f;
-  color: #74523d;
-  box-shadow:
-    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
-    0 0 0 1px hsla(230, 13%, 9%, 0.075),
-    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
-    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
-    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
-  padding: 0.2rem;
-  margin-right: 0.5rem;
-  margin-top: 0.2rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 1px;
-  transition: 0.3s;
+.input__container {
+  position: relative;
+  left: 10%;
 }
 
+.input {
+  width: 20%;
+  padding: 0.5rem 0.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: inherit;
+  text-align: right;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-bg-dark);
+  border-radius: 0.5rem;
+  background-color: var(--color-bg-light);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input_unit {
+  margin-left: 4px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.input:hover {
+  color: var(--color-accent-light);
+  border-color: var(--color-bg-dark);
+  background-color: var(--color-text-primary);
+}
+
+.input:focus {
+  outline: none;
+  color: var(--color-accent-light);
+  border-color: var(--color-bg-dark);
+  background-color: var(--color-text-primary);
+}
+
+/* ==========================
+   PROPERTY SECTIONS
+   ========================== */
 .property_container {
   margin: 1.5rem 0.5rem 0 0.5rem;
 }
@@ -158,37 +202,63 @@ html {
   font-size: 1.1rem;
 }
 
-.selector_button {
+/* ==========================
+   BUTTONS
+   ========================== */
+.selector_button,
+.selector_button_active {
   padding: 0.2rem;
   margin-right: 0.5rem;
   margin-top: 0.2rem;
-  background-color: #fd944d;
-  color: #74523d;
   cursor: pointer;
   border: none;
   border-radius: 1px;
   transition: 0.3s;
 }
 
-.selector_button:last-child {
-  margin-right: 0;
+.selector_button {
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent);
 }
+
+.selector_button:hover {
+  background-color: var(--color-accent);
+  box-shadow:
+    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+    0 0 0 1px hsla(230, 13%, 9%, 0.075),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+}
+
+.selector_button:last-child,
 .selector_button_active:last-child {
   margin-right: 0;
 }
 
+.selector_button_active {
+  color: var(--color-accent-dark);
+  background-color: var(--color-accent-light);
+  box-shadow:
+    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+    0 0 0 1px hsla(230, 13%, 9%, 0.075),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+}
+
 .swift_button {
   border: none;
-  background-color: #4a4d47;
   font-size: 1.5rem;
-  color: #fd944d;
   font-weight: 700;
-  transition: 0.3s;
   cursor: pointer;
+  transition: 0.3s;
+  background-color: var(--color-bg-mid);
+  color: var(--color-accent);
 }
 
 .swift_button:hover {
-  color: #fd944d;
+  color: var(--color-accent);
 }
 
 .swift_button:first-child:hover {
@@ -199,6 +269,9 @@ html {
   transform: translateX(10%);
 }
 
+/* ==========================
+   SWIFT & RADIO
+   ========================== */
 .swift_container,
 .radio_container {
   position: relative;
@@ -210,53 +283,51 @@ html {
 }
 
 .swift_value {
-  font-weight: 700;
-  font-size: 1.3rem;
+  width: 1rem;
+  text-align: center;
   align-self: center;
+  font-size: 1.3rem;
+  font-weight: 700;
   cursor: default;
-  color: #d8c7b8;
+  color: var(--color-text-secondary);
 }
 
 .radio_label {
-  font-weight: 700;
   margin-left: 0.5rem;
   font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
 }
 
-.radio_input {
-  accent-color: #fd944d;
-}
-
-/*** RANGE SLIDER SECTION ***/
+/* ==========================
+   RANGE SLIDER
+   ========================== */
 .range-slider {
   width: 80% !important;
 }
 
 .range-slider .range-slider__range,
 .range-slider__thumb {
-  background: #fd944d !important;
+  background: var(--color-accent) !important;
 }
 
 .range-slider__thumb[data-upper] {
-  background-color: #fcbb8f !important;
+  background-color: var(--color-accent-light) !important;
 }
 
-.info-button {
-  margin-left: 0.3rem;
-  transform: scale(80%);
-  cursor: pointer;
-}
-
+/* ==========================
+   MODALS
+   ========================== */
 .modal {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -100%);
   width: 30%;
-  background-color: #3d403b;
-  border: none;
   padding: 1rem;
+  border: none;
   cursor: default;
+  transform: translate(-50%, -100%);
+  background-color: var(--color-bg-dark);
   animation: show-modal 0.25s ease-in-out;
 }
 
@@ -264,29 +335,13 @@ html {
   position: absolute;
   top: 5%;
   right: 2%;
-  background-color: #3d403b;
   border: none;
   cursor: pointer;
+  background-color: var(--color-bg-dark);
 }
 
-.input {
-  color: #74523d;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-align: right;
-  width: 15%;
-  padding: 1px 4px;
-  margin-left: 16px;
-  margin-top: 0.5rem;
-}
-
-.input:focus {
-  outline: none;
-}
-
-.input_unit {
-  margin-left: 4px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #d8c7b8;
+.info-button {
+  margin-left: 0.3rem;
+  transform: scale(80%);
+  cursor: pointer;
 }

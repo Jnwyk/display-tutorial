@@ -53,13 +53,15 @@ export default function ChildProperties({
           />
         </ChildProperty>
         <ChildProperty propertyName="flex-basis">
-          <Input
-            property="flex-basis"
-            placeholder="Enter value..."
-            value={100}
-            handleOnBlur={handleOnPropertyValueChange}
-          />
-          <span className="input_unit">px</span>
+          <div className="input__container">
+            <Input
+              property="flex-basis"
+              placeholder="Enter value..."
+              value={100}
+              handleOnBlur={handleOnPropertyValueChange}
+            />
+            <span className="input_unit">px</span>
+          </div>
         </ChildProperty>
       </div>
     </div>
