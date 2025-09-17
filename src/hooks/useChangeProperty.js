@@ -12,7 +12,7 @@ export default function useChangeProperty() {
   const [flexboxChildProperties, setFlexboxChildProperties] = useState({
     order: blockArray[0] - 1,
     flexGrow: 0,
-    flexBasis: '1%',
+    flexBasis: '100px',
     flexShrink: 1,
   });
 

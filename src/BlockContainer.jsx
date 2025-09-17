@@ -30,7 +30,6 @@ export default function BlockContainer({
         flexGrow: displayFlexGrow,
       }}
     >
-      {console.log(numberArray)}
       {numberArray.map((block) => (
         <Block
           key={block}

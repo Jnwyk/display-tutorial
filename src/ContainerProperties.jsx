@@ -1,4 +1,3 @@
-import InfoButton from './InfoButton';
 import Selector from './Selector';
 
 export default function ContainerProperties({ handleOnPropertyValueChange }) {
