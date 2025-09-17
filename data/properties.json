@@ -2,31 +2,35 @@
   "properties": [
     {
       "property": "flex-direction",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Sets the main axis for item flow. Options: row (default, L→R), row-reverse (R→L), column (T→B), column-reverse (B→T). Controls direction items are laid out."
     },
     {
       "property": "justify-content",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Aligns items along the main axis. Values: flex-start, flex-end, center, space-between, space-around, space-evenly. Distributes free space horizontally (row) or vertically (column)."
     },
     {
       "property": "align-items",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Aligns items along the cross axis (perpendicular to main axis). Options: stretch (default), flex-start, flex-end, center, baseline. Applies to all items unless overridden."
     },
     {
       "property": "flex-wrap",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Defines if items stay in one line (nowrap) or wrap onto multiple (wrap, wrap-reverse). Useful for responsive layouts when items can’t shrink enough to fit in one row/column."
     },
     {
       "property": "order",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Controls item visual order (default 0). Lower numbers first. Doesn’t affect source code order but changes layout rendering. Multiple items with same order keep DOM order."
     },
     {
       "property": "flex-grow",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Defines how much free space an item takes relative to siblings. Default 0 (no grow). Example: grow 1 vs 2 → item with 2 gets twice as much extra space as item with 1."
     },
     {
       "property": "flex-shrink",
-      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, rem accusamus? Excepturi, amet dolore laudantium repellendus dolorum dolorem a praesentium impedit soluta autem! Vero dolorem tempore aspernatur qui reprehenderit tempora?"
+      "description": "Defines how items shrink when space is tight. Default 1 (shrink). Example: shrink 0 prevents shrinking, forcing other items to shrink more. Ratios work like flex-grow but in reverse."
+    },
+    {
+      "property": "flex-basis",
+      "description": "Sets initial size of item before grow/shrink, overriding width/height."
     }
   ]
 }

@@ -57,6 +57,7 @@ export default function ChildProperties({
             property="flex-basis"
             placeholder="Enter value..."
             startingValue={100}
+            maxValue={1500}
             handleOnBlur={handleOnPropertyValueChange}
             unit="px"
           />
